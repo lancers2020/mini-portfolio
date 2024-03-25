@@ -1,0 +1,75 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.parent {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    border-top-left-radius: 50% 80px;
+    border-top-right-radius: 50% 80px;
+    border-bottom-right-radius: 50% 80px;
+    border-bottom-left-radius: 50% 80px;
+    transform: rotate(45deg);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotateClockWise 8s linear infinite;
+}
+
+.child {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(315deg);
+    animation: rotateCounterClockWise 8s linear infinite;
+}
+
+.border1 {
+    animation: rotateClockWise 10s linear infinite;
+    width: 180px;
+    height: 190px;
+    border-top-left-radius: 60% 150px;
+    border-top-right-radius: 60%;
+    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 60%;
+    border: 1px solid white;
+    position: absolute;
+}
+
+.border2 {
+    animation: rotateCounterClockWise 10s linear infinite;
+    width: 210px;
+    height: 210px;
+    border-top-left-radius: 60% 150px;
+    border-top-right-radius: 60% 120px;
+    border-bottom-right-radius: 60% 140px;
+    border-bottom-left-radius: 60% 180px;
+    border: 2px dashed black;
+    position: absolute;
+}
+
+@keyframes rotateClockWise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateCounterClockWise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
