@@ -3,6 +3,7 @@ import HeroProfile from "../cards/HeroProfile";
 import style from "./style.module.css";
 import genericStyle from "@/public/styles.module.css";
 import BasicButton from "../buttons/basicButton";
+import aboutMeData from "@/public/data/aboutMe.json";
 
 const Navbar = () => {
     return (
@@ -44,6 +45,8 @@ const Navbar = () => {
 };
 
 const AboutMe = () => {
+    const sample = JSON.stringify(aboutMeData);
+    console.log("===aboutMeData: ", aboutMeData);
     return (
         <section className={style.parentWrapper}>
             <div className={style.wrapper}>
