@@ -1,0 +1,25 @@
+/* reusables */
+.flexRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.parentHeight {
+    height: 100%;
+}
+
+.parentWidth {
+    width: 100%;
+}
+
+.borderRadius5 {
+    border-radius: 5;
+}

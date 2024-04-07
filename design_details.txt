@@ -1,0 +1,1 @@
+main body background: #1f405c

@@ -1,5 +1,11 @@
+.parentWrapper {
+    padding: 20px;
+    background-color: #1f405c;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px 8px #10263a;
+    min-height: 466px;
+}
 .wrapper {
-    margin-top: 30vh;
     background-color: red;
     width: 70vw;
     height: 50vh;
@@ -8,43 +14,158 @@
     align-items: top;
     border-radius: 20px;
     max-width: 1000px;
+    min-height: 466px;
 }
 
 .avatarWrapper {
-    background-color: white;
+    background-color: #1f405c;
     border-bottom-right-radius: 20px;
     padding: 20px;
 }
 
 .wrapper > div:nth-child(1) {
-    background-color: red;
+    background-color: #a1c398;
+    background-color: #152c3f;
+    /* background-color: #337357; */
     border-bottom-left-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: 466px;
 }
 
 .sideBar {
-    background-color: red;
+    background-color: #a1c398;
+    background-color: #152c3f;
     padding: 10px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     height: 100%;
     width: 100%;
+    /* box-shadow: 2px 2px 8px; */
+}
+
+.sideBarWrapper {
+    background-color: #337357;
+    background-color: #6d2932;
+    background-color: #ecca9c;
+    background-color: #c6ebc5;
+    background-color: white;
+    padding: 5px;
+    border-radius: 15px;
+    margin-top: 5px;
+    color: black;
+}
+
+.sideBarBorder {
+    border: 2px dashed #152c3f;
+    border-radius: 10px;
+}
+
+.sideBarBtn {
+    background-color: #337357 !important;
+    background-color: #6d2932 !important;
+    background-color: #c6ebc5 !important;
+    background-color: white !important;
+    border: 2px solid #337357 !important;
+    border: 2px solid #6d2932 !important;
+    border: 2px solid #c6ebc5 !important;
+    border: 2px solid white !important;
+}
+
+.sideBarBtn:hover {
+    background-color: #004225 !important;
+    background-color: #135e4b !important;
+    background-color: #ffebb2 !important;
+    /* border: 2px solid white !important; */
 }
 
 .rightWrapper {
-    background-color: red;
+    background-color: #a1c398;
+    background-color: #152c3f;
     border-radius: 20px;
     border-bottom-left-radius: 0;
     width: 100%;
     height: 100%;
     padding: 10px;
+    min-height: 466px;
+    /* box-shadow: 2px 2px 8px; */
+}
+
+.rightContentContainer {
+    background-color: #6d2932;
+    background-color: #c6ebc5;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.rightContentContainer > span {
+    /* background-color: red; */
+    height: 97%;
+    width: 98.5%;
+    border: 2px dashed #152c3f;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.rightContentContainer > span > div:nth-child(1) {
+    background-color: #d5b4b4;
+    background-color: #135e4b;
+    background-color: #ffebb2;
+    margin: auto;
+    margin-top: 10%;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 1px;
+}
+
+.rightContentContainer > span > div + div {
+    background-color: #f3deba;
+    background-color: #90d26d;
+    position: absolute;
+    width: 80px;
+    opacity: 0.3;
+    height: 25px;
+}
+
+.scotchTapeTopLeft {
+    top: 17%;
+    left: 9%;
+    transform: rotate(-45deg);
+    width: 55px !important;
+}
+
+.scotchTapeTopRight {
+    top: 18%;
+    right: 7%;
+    transform: rotate(45deg);
+    width: 90px !important;
+}
+
+.scotchTapeBottomLeft {
+    bottom: 5%;
+    left: 7%;
+    transform: rotate(-135deg);
+    width: 65px !important;
+}
+
+.scotchTapeBottomRight {
+    bottom: 5%;
+    right: 7%;
+    transform: rotate(135deg);
 }
 
 .bgLeft {
-    background-color: white;
+    background-color: #1f405c;
     width: 100%;
     height: 50%;
     display: flex;
@@ -53,7 +174,21 @@
 }
 
 .bgRight {
-    background-color: white;
+    background-color: #1f405c;
     width: 100%;
     /* height: 100%; */
+}
+
+/* navbar */
+.navbarWrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.navbarWrapper > ul {
+    display: flex;
+    background-color: red;
+    min-width: 600px;
+    justify-content: space-evenly;
 }
