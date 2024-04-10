@@ -11,10 +11,10 @@ const BasicButton = ({
     className = "",
     cursor = "pointer",
     onClick = null,
+    highlighted = false,
 }) => {
     const style = {
         color: textColor,
-        backgroundColor: bgColor,
         borderRadius,
         border,
         padding,
@@ -22,7 +22,8 @@ const BasicButton = ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        cursor,
+        cursor: highlighted ? "default" : cursor,
+        disabled: highlighted ?? false,
     };
     return (
         <div onClick={onClick} className={className} style={style}>

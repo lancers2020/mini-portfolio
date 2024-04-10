@@ -75,13 +75,25 @@
     border: 2px solid #6d2932 !important;
     border: 2px solid #c6ebc5 !important;
     border: 2px solid white !important;
+    transition: 0.3s;
 }
 
 .sideBarBtn:hover {
     background-color: #004225 !important;
     background-color: #135e4b !important;
-    background-color: #ffebb2 !important;
+    background-color: #fff6dc !important;
     /* border: 2px solid white !important; */
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+.sideBarBtnHighSelected {
+    background-color: #ffebb2 !important;
+    letter-spacing: 1.5px;
+}
+
+.sideBarBtnHighSelected:hover {
+    background-color: #ffebb2 !important;
 }
 
 .rightWrapper {
@@ -122,13 +134,15 @@
     background-color: #135e4b;
     background-color: #ffebb2;
     margin: auto;
-    margin-top: 10%;
-    width: 80%;
-    height: 80%;
+    margin-top: 20px;
+    width: 90%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 5px 1px;
+    padding: 0 5px;
+    text-indent: 60px;
 }
 
 .rightContentContainer > span > div + div {
@@ -141,29 +155,29 @@
 }
 
 .scotchTapeTopLeft {
-    top: 17%;
-    left: 9%;
+    top: 7%;
+    left: 4%;
     transform: rotate(-45deg);
     width: 55px !important;
 }
 
 .scotchTapeTopRight {
-    top: 18%;
-    right: 7%;
+    top: 8%;
+    right: 2%;
     transform: rotate(45deg);
     width: 90px !important;
 }
 
 .scotchTapeBottomLeft {
     bottom: 5%;
-    left: 7%;
+    left: 2%;
     transform: rotate(-135deg);
     width: 65px !important;
 }
 
 .scotchTapeBottomRight {
     bottom: 5%;
-    right: 7%;
+    right: 2%;
     transform: rotate(135deg);
 }
 
