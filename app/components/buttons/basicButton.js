@@ -10,6 +10,7 @@ const BasicButton = ({
     margin = 0,
     className = "",
     cursor = "pointer",
+    onClick = null,
 }) => {
     const style = {
         color: textColor,
@@ -24,7 +25,7 @@ const BasicButton = ({
         cursor,
     };
     return (
-        <div className={className} style={style}>
+        <div onClick={onClick} className={className} style={style}>
             {text}
         </div>
     );

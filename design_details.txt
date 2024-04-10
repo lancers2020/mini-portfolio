@@ -1,1 +1,2 @@
-main body background: #1f405c
+main body background: #255075
+navbars: About Me, Projects, Certificates, Contact, Login

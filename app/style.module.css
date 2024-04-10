@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     padding-top: 10vh;
-    background-color: #1f405c;
+    /* background-color: #1f405c; */
+    background-color: #255075;
+    /* background-color: white; */
     height: 100vh;
 }

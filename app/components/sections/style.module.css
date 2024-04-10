@@ -1,8 +1,10 @@
 .parentWrapper {
     padding: 20px;
-    background-color: #1f405c;
+    /* background-color: #1f405c; */
+    background-color: #255075;
     border-radius: 20px;
-    box-shadow: 0px 0px 8px 8px #10263a;
+    /* box-shadow: 0px 0px 8px 8px #10263a; */
+    box-shadow: 0px 0px 8px 8px #113555;
     min-height: 466px;
 }
 .wrapper {
@@ -19,6 +21,7 @@
 
 .avatarWrapper {
     background-color: #1f405c;
+    background-color: #255075;
     border-bottom-right-radius: 20px;
     padding: 20px;
 }
@@ -166,6 +169,7 @@
 
 .bgLeft {
     background-color: #1f405c;
+    background-color: #255075;
     width: 100%;
     height: 50%;
     display: flex;
@@ -175,6 +179,7 @@
 
 .bgRight {
     background-color: #1f405c;
+    background-color: #255075;
     width: 100%;
     /* height: 100%; */
 }
@@ -184,11 +189,23 @@
     position: fixed;
     top: 0;
     right: 0;
+    margin-top: 10px;
 }
 
 .navbarWrapper > ul {
     display: flex;
-    background-color: red;
+    /* background-color: red; */
     min-width: 600px;
     justify-content: space-evenly;
+}
+
+.navbarWrapper > ul > li {
+    /* background-color: blue; */
+    padding: 5px;
+}
+
+.navbarButtons {
+    background-color: #255075 !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 8px 5px #113555;
 }
