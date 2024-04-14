@@ -26,9 +26,9 @@ const BasicButton = ({
         disabled: highlighted ?? false,
     };
     return (
-        <div onClick={onClick} className={className} style={style}>
+        <section onClick={onClick} className={className} style={style}>
             {text}
-        </div>
+        </section>
     );
 };
 

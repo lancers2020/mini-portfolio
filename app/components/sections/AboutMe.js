@@ -1,76 +1,47 @@
 import React from "react";
 import HeroProfile from "../cards/HeroProfile";
 import style from "./style.module.css";
-import genericStyle from "@/public/styles.module.css";
 import BasicButton from "../buttons/basicButton";
 import aboutMeData from "@/public/data/aboutMe.json";
 import { useDispatch, useSelector } from "react-redux";
+import Pagination from "../buttons/paginationButton";
 
 const Navbar = () => {
     const dispatch = useDispatch();
 
     const selectSidebar = (data) => {
         dispatch({ type: "HOME_SIDEBAR", payload: data });
+        dispatch({ type: "CONTENT_PAGE", payload: 0 });
     };
+
     const currentSidebar = useSelector(
         (state) => state.homeReducer.activeSidebar
     );
+
+    const renderSidebarButton = (sidebar) => {
+        return (
+            <BasicButton
+                key={sidebar}
+                text={sidebar}
+                margin={"5px 0"}
+                borderRadius={12}
+                className={`${style.sideBarBtn} ${
+                    currentSidebar === sidebar
+                        ? style.sideBarBtnHighSelected
+                        : ""
+                }`}
+                textColor="black"
+                onClick={() => selectSidebar(sidebar)}
+                highlighted={currentSidebar === sidebar}
+            />
+        );
+    };
+
     return (
         <div className={style.sideBarWrapper}>
             <div className={style.sideBarBorder}>
                 <div style={{ marginTop: "" }}>
-                    <BasicButton
-                        text={"journey"}
-                        margin={"5px 0"}
-                        borderRadius={12}
-                        className={`${style.sideBarBtn} ${
-                            currentSidebar == "journey"
-                                ? style.sideBarBtnHighSelected
-                                : ""
-                        }`}
-                        textColor="black"
-                        onClick={() => selectSidebar("journey")}
-                        highlighted={currentSidebar == "journey"}
-                    />
-                    <BasicButton
-                        text={"goals"}
-                        margin={"5px 0"}
-                        borderRadius={12}
-                        className={`${style.sideBarBtn} ${
-                            currentSidebar == "goals"
-                                ? style.sideBarBtnHighSelected
-                                : ""
-                        }`}
-                        textColor="black"
-                        onClick={() => selectSidebar("goals")}
-                        highlighted={currentSidebar == "goals"}
-                    />
-                    <BasicButton
-                        text={"inspiration"}
-                        margin={"5px 0"}
-                        borderRadius={12}
-                        className={`${style.sideBarBtn} ${
-                            currentSidebar == "inspiration"
-                                ? style.sideBarBtnHighSelected
-                                : ""
-                        }`}
-                        textColor="black"
-                        onClick={() => selectSidebar("inspiration")}
-                        highlighted={currentSidebar == "inspiration"}
-                    />
-                    <BasicButton
-                        text={"hobbies"}
-                        margin={"5px 0"}
-                        borderRadius={12}
-                        className={`${style.sideBarBtn} ${
-                            currentSidebar == "hobbies"
-                                ? style.sideBarBtnHighSelected
-                                : ""
-                        }`}
-                        textColor="black"
-                        onClick={() => selectSidebar("hobbies")}
-                        highlighted={currentSidebar == "hobbies"}
-                    />
+                    {Object.keys(aboutMeData).map(renderSidebarButton)}
                 </div>
             </div>
         </div>
@@ -78,13 +49,31 @@ const Navbar = () => {
 };
 
 const AboutMe = () => {
-    const dataObjKeys = Object.keys(aboutMeData);
-    const dataObjArray = dataObjKeys.map((v) => ({
-        [v]: aboutMeData[v],
-    }));
-    const currentSidebar = useSelector(
-        (state) => state.homeReducer.activeSidebar
-    );
+    const { activeSidebar: currentSidebar, activePage: currentPage } =
+        useSelector((state) => state.homeReducer);
+
+    const currentSidebarContent = aboutMeData[currentSidebar][currentPage];
+    const pageCount = aboutMeData[currentSidebar].length;
+
+    const renderDots = () => {
+        return (
+            <section>
+                <ul>
+                    {aboutMeData[currentSidebar].map((_, i) => (
+                        <li
+                            key={i}
+                            style={{
+                                backgroundColor:
+                                    currentPage === i ? "black" : "",
+                            }}
+                            className={style.dots}
+                        />
+                    ))}
+                </ul>
+            </section>
+        );
+    };
+
     return (
         <section className={style.parentWrapper}>
             <div className={style.wrapper}>
@@ -104,15 +93,19 @@ const AboutMe = () => {
                     <div className={style.rightWrapper}>
                         <div className={style.rightContentContainer}>
                             <span>
-                                <div>{aboutMeData[currentSidebar]}</div>
-                                <div className={style.scotchTapeTopLeft}></div>
-                                <div className={style.scotchTapeTopRight}></div>
-                                <div
-                                    className={style.scotchTapeBottomLeft}
-                                ></div>
-                                <div
-                                    className={style.scotchTapeBottomRight}
-                                ></div>
+                                <div>{currentSidebarContent}</div>
+                                <div className={style.scotchTapeTopLeft} />
+                                <div className={style.scotchTapeTopRight} />
+                                <div className={style.scotchTapeBottomLeft} />
+                                <div className={style.scotchTapeBottomRight} />
+                                <div>{renderDots()}</div>
+                                <div>
+                                    <Pagination
+                                        currentPage={currentPage}
+                                        pageCount={pageCount}
+                                        type={"CONTENT_PAGE"}
+                                    />
+                                </div>
                             </span>
                         </div>
                     </div>
