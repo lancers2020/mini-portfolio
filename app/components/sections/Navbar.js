@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./style.module.css";
 import BasicButton from "../buttons/basicButton";
+import { useSelector } from "react-redux";
 
-const NavBarButtons = ({ text }) => {
+const NavBarButtons = ({ text, isHovered}) => {
+    const { activeNavbarButton: currentNavbarButton } = useSelector((state)=>state.navbarReducer);
+    const isCurrentText = currentNavbarButton.toLowerCase() == text.toLowerCase();
+
     return (
         <div>
             <BasicButton
                 text={text}
                 margin={"5px 0"}
                 borderRadius={12}
-                className={style.navbarButtons}
+                className={`${style.navbarButtons} ${!isHovered && (isCurrentText && style.activeNavbarButton)}`}
                 textColor="white"
             />
         </div>
@@ -17,23 +21,25 @@ const NavBarButtons = ({ text }) => {
 };
 
 function Navbar() {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
         <section className={style.navbarWrapper}>
-            <ul>
-                <li>
-                    <NavBarButtons text={"AboutMe"} />
+            <ul onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)}>
+                <li >
+                    <NavBarButtons isHovered={isHovered} text={"AboutMe"} />
                 </li>
                 <li>
-                    <NavBarButtons text={"Projects"} />
+                    <NavBarButtons isHovered={isHovered} text={"Projects"} />
                 </li>
                 <li>
-                    <NavBarButtons text={"Certificates"} />
+                    <NavBarButtons isHovered={isHovered} text={"Certificates"} />
                 </li>
                 <li>
-                    <NavBarButtons text={"Contact"} />
+                    <NavBarButtons isHovered={isHovered} text={"Contact"} />
                 </li>
                 <li>
-                    <NavBarButtons text={"Login"} />
+                    <NavBarButtons isHovered={isHovered} text={"Login"} />
                 </li>
             </ul>
         </section>

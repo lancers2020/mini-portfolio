@@ -1,0 +1,11 @@
+@keyframes wobble {
+    0% { transform: scale(1); }
+    50% { transform: scale(.85); }
+    /* 50% { transform: scale(0.9); } */
+    /* 75% { transform: scale(1.05); } */
+    100% { transform: scale(1); }
+}
+
+.wobble {
+    animation: wobble 0.2s ease;
+}
