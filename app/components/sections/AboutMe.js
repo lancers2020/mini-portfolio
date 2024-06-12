@@ -25,9 +25,9 @@ const Navbar = () => {
                 text={sidebar}
                 margin={"5px 0"}
                 borderRadius={12}
-                className={`${style.sideBarBtn} ${
+                className={`${style.abSideBarBtn} ${
                     currentSidebar === sidebar
-                        ? style.sideBarBtnHighSelected
+                        ? style.abSideBarBtnHighSelected
                         : ""
                 }`}
                 textColor="black"
@@ -38,8 +38,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className={style.sideBarWrapper}>
-            <div className={style.sideBarBorder}>
+        <div className={style.abSideBarWrapper}>
+            <div className={style.abSideBarBorder}>
                 <div style={{ marginTop: "" }}>
                     {Object.keys(aboutMeData).map(renderSidebarButton)}
                 </div>
@@ -67,7 +67,7 @@ const AboutMe = () => {
                                 backgroundColor:
                                     currentPage === i ? "black" : "",
                             }}
-                            className={style.dots}
+                            className={style.abDots}
                         />
                     ))}
                 </ul>
@@ -80,29 +80,29 @@ const AboutMe = () => {
     }
 
     return (
-        <section style={{...contentHoveredBg}} className={style.parentWrapper} onMouseOver={()=>setIsContentHovered(true)} onMouseOut={()=>setIsContentHovered(false)}>
-            <div className={style.wrapper}>
+        <section style={{...contentHoveredBg}} className={style.abParentWrapper} onMouseOver={()=>setIsContentHovered(true)} onMouseOut={()=>setIsContentHovered(false)}>
+            <div className={style.abWrapper}>
                 <div style={{...contentHoveredBg}}>
-                    <div style={{...contentHoveredBg}} className={style.avatarWrapper}>
+                    <div style={{...contentHoveredBg}} className={style.abAvatarWrapper}>
                         <span>
                             <HeroProfile isContentHovered={isContentHovered} />
                         </span>
                     </div>
-                    <div style={{...contentHoveredBg}} className={style.bgLeft}>
-                        <div className={style.sideBar}>
+                    <div style={{...contentHoveredBg}} className={style.abBgLeft}>
+                        <div className={style.abSideBar}>
                             <Navbar />
                         </div>
                     </div>
                 </div>
-                <div style={{...contentHoveredBg}} className={style.bgRight}>
-                    <div className={style.rightWrapper}>
-                        <div className={style.rightContentContainer}>
+                <div style={{...contentHoveredBg}} className={style.abBgRight}>
+                    <div className={style.abRightWrapper}>
+                        <div className={style.abRightContentContainer}>
                             <span>
                                 <div>{currentSidebarContent}</div>
-                                <div className={style.scotchTapeTopLeft} />
-                                <div className={style.scotchTapeTopRight} />
-                                <div className={style.scotchTapeBottomLeft} />
-                                <div className={style.scotchTapeBottomRight} />
+                                <div className={style.abScotchTapeTopLeft} />
+                                <div className={style.abScotchTapeTopRight} />
+                                <div className={style.abScotchTapeBottomLeft} />
+                                <div className={style.abScotchTapeBottomRight} />
                                 <div>{renderDots()}</div>
                                 <div>
                                     <Pagination
