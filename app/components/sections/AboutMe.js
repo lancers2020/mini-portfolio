@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroProfile from "../cards/HeroProfile";
 import style from "./style.module.css";
 import BasicButton from "../buttons/basicButton";
@@ -49,6 +49,7 @@ const Navbar = () => {
 };
 
 const AboutMe = () => {
+    const [isContentHovered, setIsContentHovered] = useState(false);
     const { activeSidebar: currentSidebar, activePage: currentPage } =
         useSelector((state) => state.homeReducer);
 
@@ -74,22 +75,26 @@ const AboutMe = () => {
         );
     };
 
+    const contentHoveredBg = {
+        backgroundColor: isContentHovered ? '#051725' : ''
+    }
+
     return (
-        <section className={style.parentWrapper}>
+        <section style={{...contentHoveredBg}} className={style.parentWrapper} onMouseOver={()=>setIsContentHovered(true)} onMouseOut={()=>setIsContentHovered(false)}>
             <div className={style.wrapper}>
-                <div>
-                    <div className={style.avatarWrapper}>
+                <div style={{...contentHoveredBg}}>
+                    <div style={{...contentHoveredBg}} className={style.avatarWrapper}>
                         <span>
-                            <HeroProfile />
+                            <HeroProfile isContentHovered={isContentHovered} />
                         </span>
                     </div>
-                    <div className={style.bgLeft}>
+                    <div style={{...contentHoveredBg}} className={style.bgLeft}>
                         <div className={style.sideBar}>
                             <Navbar />
                         </div>
                     </div>
                 </div>
-                <div className={style.bgRight}>
+                <div style={{...contentHoveredBg}} className={style.bgRight}>
                     <div className={style.rightWrapper}>
                         <div className={style.rightContentContainer}>
                             <span>

@@ -4,7 +4,7 @@ import style from "./styles.module.css";
 import Monkeh from "@/public/monkeh_profile.png";
 import InformalProfile from "@/public/informal_profile.jpg";
 
-const HeroProfile = () => {
+const HeroProfile = ({isContentHovered}) => {
     return (
         <div className={style.wrapper}>
             <div className={style.parent}>
@@ -18,7 +18,7 @@ const HeroProfile = () => {
                 </div>
                 <div className={style.border1}></div>
             </div>
-            <div className={style.border2}></div>
+            <div className={style.border2} style={{borderColor: isContentHovered ? 'white' : ''}}></div>
         </div>
     );
 };
