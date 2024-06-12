@@ -4,11 +4,11 @@ import style from "./styles.module.css";
 import Monkeh from "@/public/monkeh_profile.png";
 import InformalProfile from "@/public/informal_profile.jpg";
 
-const HeroProfile = () => {
+const HeroProfile = ({isContentHovered}) => {
     return (
-        <div className={style.wrapper}>
-            <div className={style.parent}>
-                <div className={style.child}>
+        <section className={style.heroProfileWrapper}>
+            <div className={style.heroProfileParent}>
+                <div className={style.heroProfileChild}>
                     <Image
                         src={InformalProfile}
                         alt="Dave"
@@ -16,10 +16,10 @@ const HeroProfile = () => {
                         height={200}
                     />
                 </div>
-                <div className={style.border1}></div>
+                <div className={style.heroProfileBorder1}></div>
             </div>
-            <div className={style.border2}></div>
-        </div>
+            <div className={style.heroProfileBorder2} style={{borderColor: isContentHovered ? 'white' : ''}}></div>
+        </section>
     );
 };
 

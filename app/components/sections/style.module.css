@@ -1,4 +1,4 @@
-.parentWrapper {
+.abParentWrapper {
     padding: 20px;
     /* background-color: #1f405c; */
     background-color: #255075;
@@ -7,7 +7,7 @@
     box-shadow: 0px 0px 8px 8px #113555;
     min-height: 466px;
 }
-.wrapper {
+.abWrapper {
     width: 70vw;
     height: 50vh;
     display: flex;
@@ -17,15 +17,13 @@
     max-width: 1000px;
     min-height: 466px;
 }
-
-.avatarWrapper {
+.abAvatarWrapper {
     background-color: #1f405c;
     background-color: #255075;
     border-bottom-right-radius: 20px;
     padding: 20px;
 }
-
-.wrapper > div:nth-child(1) {
+.abWrapper > div:nth-child(1) {
     background-color: #a1c398;
     background-color: #152c3f;
     /* background-color: #337357; */
@@ -36,8 +34,7 @@
     flex-direction: column;
     min-height: 466px;
 }
-
-.sideBar {
+.abSideBar {
     background-color: #a1c398;
     background-color: #152c3f;
     padding: 10px;
@@ -46,8 +43,7 @@
     height: 100%;
     width: 100%;
 }
-
-.sideBarWrapper {
+.abSideBarWrapper {
     background-color: #337357;
     background-color: #6d2932;
     background-color: #ecca9c;
@@ -58,13 +54,11 @@
     margin-top: 5px;
     color: black;
 }
-
-.sideBarBorder {
+.abSideBarBorder {
     border: 2px dashed #152c3f;
     border-radius: 10px;
 }
-
-.sideBarBtn {
+.abSideBarBtn {
     background-color: #337357 !important;
     background-color: #6d2932 !important;
     background-color: #c6ebc5 !important;
@@ -75,25 +69,21 @@
     border: 2px solid white !important;
     transition: 0.3s;
 }
-
-.sideBarBtn:hover {
+.abSideBarBtn:hover {
     background-color: #004225 !important;
     background-color: #135e4b !important;
     background-color: #fff6dc !important;
     letter-spacing: 1.5px;
     transition: 0.3s;
 }
-
-.sideBarBtnHighSelected {
+.abSideBarBtnHighSelected {
     background-color: #ffebb2 !important;
     letter-spacing: 1.5px;
 }
-
-.sideBarBtnHighSelected:hover {
+.abSideBarBtnHighSelected:hover {
     background-color: #ffebb2 !important;
 }
-
-.rightWrapper {
+.abRightWrapper {
     background-color: #a1c398;
     background-color: #152c3f;
     border-radius: 20px;
@@ -103,8 +93,7 @@
     padding: 10px;
     min-height: 466px;
 }
-
-.rightContentContainer {
+.abRightContentContainer {
     background-color: #6d2932;
     background-color: #c6ebc5;
     background-color: white;
@@ -114,16 +103,14 @@
     align-items: center;
     border-radius: 15px;
 }
-
-.rightContentContainer > span {
+.abRightContentContainer > span {
     height: 97%;
     width: 98.5%;
     border: 2px dashed #152c3f;
     border-radius: 10px;
     position: relative;
 }
-
-.rightContentContainer > span > div:nth-child(1) {
+.abRightContentContainer > span > div:nth-child(1) {
     background-color: #d5b4b4;
     background-color: #135e4b;
     background-color: #ffebb2;
@@ -140,8 +127,7 @@
     font-family: cursive;
     font-size: 20px;
 }
-
-.rightContentContainer > span > div + div {
+.abRightContentContainer > span > div + div {
     background-color: #f3deba;
     background-color: #90d26d;
     position: absolute;
@@ -149,8 +135,7 @@
     opacity: 0.3;
     height: 25px;
 }
-
-.rightContentContainer > span > div:nth-child(6) {
+.abRightContentContainer > span > div:nth-child(6) {
     background-color: transparent;
     position: absolute;
     bottom: 30px;
@@ -161,14 +146,12 @@
     justify-content: center;
     align-items: center;
 }
-
-.rightContentContainer > span > div:nth-child(6) > section > ul {
+.abRightContentContainer > span > div:nth-child(6) > section > ul {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.rightContentContainer > span > div:nth-child(7) {
+.abRightContentContainer > span > div:nth-child(7) {
     background-color: transparent;
     position: absolute;
     opacity: 1;
@@ -178,35 +161,30 @@
     display: flex;
     justify-content: center;
 }
-
-.scotchTapeTopLeft {
+.abScotchTapeTopLeft {
     top: 7%;
     left: 4%;
     transform: rotate(-45deg);
     width: 55px !important;
 }
-
-.scotchTapeTopRight {
+.abScotchTapeTopRight {
     top: 8%;
     right: 2%;
     transform: rotate(45deg);
     width: 90px !important;
 }
-
-.scotchTapeBottomLeft {
+.abScotchTapeBottomLeft {
     bottom: 5%;
     left: 2%;
     transform: rotate(-135deg);
     width: 65px !important;
 }
-
-.scotchTapeBottomRight {
+.abScotchTapeBottomRight {
     bottom: 5%;
     right: 2%;
     transform: rotate(135deg);
 }
-
-.bgLeft {
+.abBgLeft {
     background-color: #1f405c;
     background-color: #255075;
     width: 100%;
@@ -215,8 +193,7 @@
     justify-content: center;
     align-items: center;
 }
-
-.bgRight {
+.aBBgRight {
     background-color: #1f405c;
     background-color: #255075;
     width: 100%;
@@ -229,34 +206,40 @@
     right: 0;
     margin-top: 10px;
 }
-
 .navbarWrapper > ul {
     display: flex;
     min-width: 600px;
     justify-content: space-evenly;
 }
-
 .navbarWrapper > ul > li {
     padding: 5px;
 }
-
 .navbarButtons {
     background-color: #255075;
     border-radius: 10px;
-    box-shadow: 0px 0px 8px 5px #113555;
+    /* box-shadow: 0px 0px 8px 5px #113555; */
     transition: background-color 0.2s ease-in-out, transform 0.5s cubic-bezier(0.785, 1.135, 0.155, 0.855);
 }
-  
 .navbarButtons:hover {
+    box-shadow: 0px 0px 8px 5px #113555;
     animation: bounce 0.5s ease-in-out;
     transform: scale(1.2);
+}
+.activeNavbarButton {
+    box-shadow: 0px 0px 8px 5px #113555;
+    animation: bounce 0.5s ease-in-out;
+    transform: scale(1.2);
+}
+.sideBarBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 8px 12px 0 0;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
 }
 
-.activeNavbarButton {
-    animation: bounce 0.5s ease-in-out;
-    transform: scale(1.2);
-}
-  
 @keyframes bounce {
     0% { transform: scale(1); }
     20% { transform: scale(1.2); }
@@ -265,7 +248,7 @@
 }
 
 /* dots */
-.dots {
+.abDots {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -273,8 +256,7 @@
     margin: 0 5px;
     transition: 0.2s;
 }
-
-.dots:hover {
+.abDots:hover {
     width: 20px;
     height: 20px;
     transition: 0.2s;
@@ -292,5 +274,10 @@
     }
     .wrapper {
         width: 90vw;
+    }
+}
+@media (max-width: 425px) {
+    .navbarWrapper {
+        background-color: red;
     }
 }
