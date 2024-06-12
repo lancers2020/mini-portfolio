@@ -6,8 +6,7 @@ import SideBarDocker from "../cards/SideBarDocker";
 import Bar from '@/public/icons/bar.png';
 import Image from "next/image";
 
-const NavBarButtons = ({ text, isHovered}) => {
-    const { activeNavbarButton: currentNavbarButton } = useSelector((state)=>state.navbarReducer);
+const NavBarButtons = ({ text, isHovered, currentNavbarButton}) => {
     const isCurrentText = currentNavbarButton.toLowerCase() == text.toLowerCase();
 
     return (
@@ -28,6 +27,8 @@ function Navbar() {
     const [width, setWidth] = useState(window.innerWidth);
     const [isClicked, setIsClicked] = useState(false);
 
+    const { activeNavbarButton: currentNavbarButton } = useSelector((state)=>state.navbarReducer);
+
     useEffect(() => {
         const handleResize = () => {
             setWidth(window.innerWidth);
@@ -47,26 +48,26 @@ function Navbar() {
                 <section className={style.navbarWrapper}>
                     <ul onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)}>
                         <li >
-                            <NavBarButtons isHovered={isHovered} text={"AboutMe"} />
+                            <NavBarButtons currentNavbarButton={currentNavbarButton} isHovered={isHovered} text={"AboutMe"} />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Projects"} />
+                            <NavBarButtons currentNavbarButton={currentNavbarButton} isHovered={isHovered} text={"Projects"} />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Certificates"} />
+                            <NavBarButtons currentNavbarButton={currentNavbarButton} isHovered={isHovered} text={"Certificates"} />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Contact"} />
+                            <NavBarButtons currentNavbarButton={currentNavbarButton} isHovered={isHovered} text={"Contact"} />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Login"} />
+                            <NavBarButtons currentNavbarButton={currentNavbarButton} isHovered={isHovered} text={"Login"} />
                         </li>
                     </ul>
                 </section>
             ) : (
                 // isClicked ? <SideBarDocker list={navbarList} isClicked={isClicked} /> : <div onClick={()=>setIsClicked(true)} className={style.sideBarBtn}><Image src={Bar} width={50} height={50} alt="sidebar toggle"/></div>
                 <>
-                    <SideBarDocker list={navbarList} isClicked={isClicked} />
+                    <SideBarDocker currentNavbarButton={currentNavbarButton} list={navbarList} isClicked={isClicked} />
                     <div onClick={()=>setIsClicked(true)} className={style.sideBarBtn}><Image src={Bar} width={50} height={50} alt="sidebar toggle"/></div>
                 </>
             )}
