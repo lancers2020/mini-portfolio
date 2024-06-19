@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
-import style from "./style.module.css";
-import BasicButton from "../buttons/basicButton";
-import { useSelector } from "react-redux";
-import SideBarDocker from "../cards/SideBarDocker";
+import React, { useEffect, useState } from 'react';
+import style from './style.module.css';
+import BasicButton from '../buttons/basicButton';
+import { useSelector } from 'react-redux';
+import SideBarDocker from '../cards/SideBarDocker';
 import Bar from '@/public/icons/bar.png';
-import Image from "next/image";
+import Image from 'next/image';
 
-const NavBarButtons = ({ text, isHovered}) => {
-    const { activeNavbarButton: currentNavbarButton } = useSelector((state)=>state.navbarReducer);
-    const isCurrentText = currentNavbarButton.toLowerCase() == text.toLowerCase();
+const NavBarButtons = ({ text, isHovered, currentNavbarButton }) => {
+    const isCurrentText =
+        currentNavbarButton.toLowerCase() == text.toLowerCase();
 
     return (
         <div>
             <BasicButton
                 text={text}
-                margin={"5px 0"}
+                margin={'5px 0'}
                 borderRadius={12}
-                className={`${style.navbarButtons} ${!isHovered && (isCurrentText && style.activeNavbarButton)}`}
+                className={`${style.navbarButtons} ${
+                    !isHovered && isCurrentText && style.activeNavbarButton
+                }`}
                 textColor="white"
             />
         </div>
@@ -25,52 +27,103 @@ const NavBarButtons = ({ text, isHovered}) => {
 
 function Navbar() {
     const [isHovered, setIsHovered] = useState(false);
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(0);
     const [isClicked, setIsClicked] = useState(false);
 
+    const { activeNavbarButton: currentNavbarButton } = useSelector(
+        (state) => state.navbarReducer,
+    );
+
     useEffect(() => {
+        setWidth(window.innerWidth);
         const handleResize = () => {
             setWidth(window.innerWidth);
         };
-        
-        window.addEventListener("resize", handleResize);
+
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener("resize", handleResize);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    const navbarList = ["AboutMe", "Projects", "Certificates", "Contact", "Login"];
+    const navbarList = [
+        'AboutMe',
+        'Projects',
+        'Certificates',
+        'Contact',
+        'Login',
+    ];
 
     return (
         <>
             {width > 768 ? (
                 <section className={style.navbarWrapper}>
-                    <ul onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)}>
-                        <li >
-                            <NavBarButtons isHovered={isHovered} text={"AboutMe"} />
+                    <ul
+                        onMouseOver={() => setIsHovered(true)}
+                        onMouseOut={() => setIsHovered(false)}
+                    >
+                        <li>
+                            <NavBarButtons
+                                currentNavbarButton={currentNavbarButton}
+                                isHovered={isHovered}
+                                text={'AboutMe'}
+                            />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Projects"} />
+                            <NavBarButtons
+                                currentNavbarButton={currentNavbarButton}
+                                isHovered={isHovered}
+                                text={'Projects'}
+                            />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Certificates"} />
+                            <NavBarButtons
+                                currentNavbarButton={currentNavbarButton}
+                                isHovered={isHovered}
+                                text={'Certificates'}
+                            />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Contact"} />
+                            <NavBarButtons
+                                currentNavbarButton={currentNavbarButton}
+                                isHovered={isHovered}
+                                text={'Contact'}
+                            />
                         </li>
                         <li>
-                            <NavBarButtons isHovered={isHovered} text={"Login"} />
+                            <NavBarButtons
+                                currentNavbarButton={currentNavbarButton}
+                                isHovered={isHovered}
+                                text={'Login'}
+                            />
                         </li>
                     </ul>
                 </section>
             ) : (
                 // isClicked ? <SideBarDocker list={navbarList} isClicked={isClicked} /> : <div onClick={()=>setIsClicked(true)} className={style.sideBarBtn}><Image src={Bar} width={50} height={50} alt="sidebar toggle"/></div>
                 <>
-                    <SideBarDocker list={navbarList} isClicked={isClicked} />
-                    <div onClick={()=>setIsClicked(true)} className={style.sideBarBtn}><Image src={Bar} width={50} height={50} alt="sidebar toggle"/></div>
+                    <SideBarDocker
+                        currentNavbarButton={currentNavbarButton}
+                        list={navbarList}
+                        isClicked={isClicked}
+                        screenSize={width}
+                    />
+                    <div
+                        onClick={() => setIsClicked(true)}
+                        className={style.navbarBurgerBtn}
+                    >
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </>
             )}
-            {isClicked && <div onClick={()=>setIsClicked(false)} className="overlay"></div>}
+            {isClicked && (
+                <div
+                    onClick={() => setIsClicked(false)}
+                    className="overlay"
+                ></div>
+            )}
         </>
     );
 }
