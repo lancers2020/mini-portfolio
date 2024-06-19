@@ -148,7 +148,6 @@ const AboutMe = () => {
             onMouseOver={() => setIsContentHovered(true)}
             onMouseOut={() => setIsContentHovered(false)}
         >
-            {window.innerWidth}
             <div className={style.abWrapper}>
                 <div>
                     <div
@@ -169,7 +168,6 @@ const AboutMe = () => {
                     </div>
                 </div>
                 {modal && width <= 630 && <div className="overlay"></div>}
-                {/* <div className={`${style.abBgRight} ${modal && style.block}`}> */}
                 {width <= 630 ? modal && <Content /> : <Content />}
             </div>
         </section>
