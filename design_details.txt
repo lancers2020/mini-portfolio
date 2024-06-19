@@ -1,4 +1,6 @@
 main body background: #255075
+main box-shadow: #113555
+main dark color: #051725
 navbars: About Me, Projects, Certificates, Contact, Login
 components: components always wraps their content with element "section" so as not to have css conflicts
 

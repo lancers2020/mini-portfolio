@@ -53,7 +53,7 @@
     border-top-right-radius: 60% 120px;
     border-bottom-right-radius: 60% 140px;
     border-bottom-left-radius: 60% 180px;
-    border: 2px dashed black;
+    border: 2px dashed white;
     position: absolute;
 }
 
@@ -70,7 +70,7 @@
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     overflow: hidden;
-    transition: .2s ease;
+    transition: 0.2s ease;
 }
 .isClicked {
     right: 0;
@@ -89,28 +89,6 @@
 .sideBarDkrContainer > div:nth-of-type(2) > div {
     border: 2px dashed white;
 }
-.sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(1) {
-    left: -10px;
-    z-index: 10;
-    transform: rotate(15deg);
-    margin-bottom: 30px;
-    transition: .45s ease;
-}
-.sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(2) {
-    left: -180px;
-    /* z-index: 10; */
-    transform: rotate(30deg);
-    /* margin-bottom: 30px; */
-    transition: .3s ease;
-}
-.sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(3) {
-    left: 20px;
-    transform: skew(-8deg, 34deg);
-    transform: rotate(35deg);
-    transition: .5s ease;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
 .sideBarDkrContainer > div:nth-of-type(2) > div:nth-of-type(1) {
     position: absolute;
     bottom: 0;
@@ -121,7 +99,7 @@
     z-index: 10;
     transform: rotate(20deg);
     margin-bottom: 20px;
-    transition: .3s ease;
+    transition: 0.3s ease;
 }
 .sideBarDkrContainer > div:nth-of-type(2) > div:nth-of-type(2) {
     position: absolute;
@@ -134,7 +112,7 @@
     transform: rotate(30deg);
     border: none;
     padding: 5px;
-    transition: .3s ease;
+    transition: 0.3s ease;
 }
 .sideBarDkrContainer > div:nth-of-type(2) > div:nth-of-type(3) {
     position: absolute;
@@ -146,7 +124,7 @@
     transform: skew(-40deg, 40deg);
     z-index: 11;
     margin-bottom: -20px;
-    transition: .3s ease;
+    transition: 0.3s ease;
 }
 .sideBarDkrContainer > div:nth-of-type(2) > div:nth-of-type(2) > div {
     border: 2px dashed rgb(0, 0, 0);
@@ -162,6 +140,8 @@
 }
 .sideBarDkrWrapper > ul > li + li {
     margin-top: 8px;
+}
+.mobileIsClickedKindOfHover {
 }
 
 @keyframes rotateClockWise {
@@ -185,19 +165,59 @@
 @media (max-width: 425px) {
     .sideBarDkrContainer {
         width: 55vw;
+        right: -55vw;
     }
-    .sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(3) {
+    .isClicked {
+        right: 0;
+        transition: 0s;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobileIsClickedKindOfHover > div:nth-of-type(2) > div:nth-of-type(1) {
+        left: -10px;
+        z-index: 10;
+        transform: rotate(15deg);
+        margin-bottom: 30px;
+        transition: 0.45s ease;
+    }
+    .mobileIsClickedKindOfHover > div:nth-of-type(2) > div:nth-of-type(3) {
         left: 20px;
         transform: skew(-8deg, 34deg);
         transform: rotate(25deg);
-        transition: .6s ease;
+        transition: 0.6s ease;
         /* margin-bottom: 50px;
         margin-right: 20px; */
         /* margin-top: 20px; */
     }
-    .sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(2) {
+    .mobileIsClickedKindOfHover > div:nth-of-type(2) > div:nth-of-type(2) {
         left: -150px;
         transform: rotate(30deg);
-        transition: .3s ease;
+        transition: 0.3s ease;
+    }
+}
+
+@media (min-width: 769px) {
+    .sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(1) {
+        left: -10px;
+        z-index: 10;
+        transform: rotate(15deg);
+        margin-bottom: 30px;
+        transition: 0.45s ease;
+    }
+    .sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(2) {
+        left: -180px;
+        /* z-index: 10; */
+        transform: rotate(30deg);
+        /* margin-bottom: 30px; */
+        transition: 0.3s ease;
+    }
+    .sideBarDkrContainer:hover > div:nth-of-type(2) > div:nth-of-type(3) {
+        left: 20px;
+        transform: skew(-8deg, 34deg);
+        transform: rotate(35deg);
+        transition: 0.5s ease;
+        margin-bottom: 30px;
+        margin-top: 20px;
     }
 }
