@@ -14,8 +14,9 @@ const SideBarDocker = ({
         >
             <div className={style.sideBarDkrWrapper}>
                 <ul>
-                    {list.map((v) => (
+                    {list.map((v, i) => (
                         <li
+                            key={i}
                             style={{
                                 background:
                                     currentNavbarButton.toLowerCase() ==
