@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { contentPage } from '@/store/actions/homeActions';
 import Image from "next/image";
 import Next from "@/public/icons/next.png";
 import Previous from "@/public/icons/previous.png";
@@ -30,7 +31,11 @@ const Pagination = ({ currentPage, pageCount, type, style }) => {
         <section style={styles}>
             <button
                 disabled={currentPage <= 0}
-                onClick={() => dispatch({ type, payload: currentPage - 1 })}
+                onClick={() =>
+                    type === 'CONTENT_PAGE'
+                        ? dispatch(contentPage(currentPage - 1))
+                        : dispatch({ type, payload: currentPage - 1 })
+                }
                 className="paginationBtn"
                 style={{ opacity: currentPage <= 0 ? 0.5 : 1 }}
             >
@@ -43,7 +48,11 @@ const Pagination = ({ currentPage, pageCount, type, style }) => {
             </button>
             <button
                 disabled={pageCount == currentPage + 1}
-                onClick={() => dispatch({ type, payload: currentPage + 1 })}
+                onClick={() =>
+                    type === 'CONTENT_PAGE'
+                        ? dispatch(contentPage(currentPage + 1))
+                        : dispatch({ type, payload: currentPage + 1 })
+                }
                 className="paginationBtn"
                 style={{ opacity: pageCount == currentPage + 1 ? 0.5 : 1 }}
             >

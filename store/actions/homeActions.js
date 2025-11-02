@@ -1,12 +1,4 @@
-import { HOME_SIDEBAR } from "./index";
-import { CONTENT_PAGE } from "./index";
+// Re-export actions from the RTK slice for backward compatibility.
+import { homeSidebar, contentPage } from "@/store/reducers/homeReducer";
 
-export const homeSidebar = (data) => ({
-    type: HOME_SIDEBAR,
-    payload: data,
-});
-
-export const contentPage = (data) => ({
-    type: CONTENT_PAGE,
-    payload: data,
-});
+export { homeSidebar, contentPage };

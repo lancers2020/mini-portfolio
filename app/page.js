@@ -5,10 +5,7 @@ import style from "./style.module.css";
 import AboutMe from "./components/sections/AboutMe";
 import Navbar from "./components/sections/Navbar";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import rootReducer from "@/store/reducers";
-
-const store = createStore(rootReducer);
+import store from "@/store/store";
 
 const Home = () => {
     return (

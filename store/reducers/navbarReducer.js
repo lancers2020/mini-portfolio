@@ -1,19 +1,20 @@
-import { NAVBAR_BUTTON_ACTIVE } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    activeNavbarButton: "AboutMe"
-}
+    activeNavbarButton: "AboutMe",
+};
 
-const navbarReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case NAVBAR_BUTTON_ACTIVE: 
-            return {
-                ...state,
-                activeNavbarButton: action.payload
-            };
-        default:
-            return state;
-    }
-}
+const navbarSlice = createSlice({
+    name: "navbar",
+    initialState,
+    reducers: {
+        // preserve action name for compatibility
+        navbarButtonActive(state, action) {
+            state.activeNavbarButton = action.payload;
+        },
+    },
+});
 
-export default navbarReducer;
+export const { navbarButtonActive } = navbarSlice.actions;
+
+export default navbarSlice.reducer;

@@ -31,7 +31,7 @@ function Navbar() {
     const [isClicked, setIsClicked] = useState(false);
 
     const { activeNavbarButton: currentNavbarButton } = useSelector(
-        (state) => state.navbarReducer,
+        (state) => state.navbar,
     );
 
     useEffect(() => {
