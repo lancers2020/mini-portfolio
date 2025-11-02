@@ -1,26 +1,24 @@
-import { HOME_SIDEBAR } from "../actions";
-import { CONTENT_PAGE } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     activeSidebar: "journey",
     activePage: 0,
 };
 
-const homeReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case HOME_SIDEBAR:
-            return {
-                ...state,
-                activeSidebar: action.payload,
-            };
-        case CONTENT_PAGE:
-            return {
-                ...state,
-                activePage: action.payload,
-            };
-        default:
-            return state;
-    }
-};
+const homeSlice = createSlice({
+    name: "home",
+    initialState,
+    reducers: {
+        // keep the original action names for compatibility
+        homeSidebar(state, action) {
+            state.activeSidebar = action.payload;
+        },
+        contentPage(state, action) {
+            state.activePage = action.payload;
+        },
+    },
+});
 
-export default homeReducer;
+export const { homeSidebar, contentPage } = homeSlice.actions;
+
+export default homeSlice.reducer;

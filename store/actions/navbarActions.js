@@ -1,6 +1,4 @@
-import { NAVBAR_BUTTON_ACTIVE } from "./index";
+// Re-export action from RTK slice for backward compatibility.
+import { navbarButtonActive } from "@/store/reducers/navbarReducer";
 
-export const navbarButtonActive = (data) => ({
-    type: NAVBAR_BUTTON_ACTIVE,
-    payload: data
-});
+export { navbarButtonActive };

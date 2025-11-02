@@ -6,19 +6,18 @@ import style from './style.module.css';
 import BasicButton from '../buttons/basicButton';
 import aboutMeData from '@/public/data/aboutMe.json';
 import { useDispatch, useSelector } from 'react-redux';
+import { homeSidebar, contentPage } from '@/store/actions/homeActions';
 import Pagination from '../buttons/paginationButton';
 
 const Navbar = ({ setModal, width }) => {
     const dispatch = useDispatch();
 
     const selectSidebar = (data) => {
-        dispatch({ type: 'HOME_SIDEBAR', payload: data });
-        dispatch({ type: 'CONTENT_PAGE', payload: 0 });
+        dispatch(homeSidebar(data));
+        dispatch(contentPage(0));
     };
 
-    const currentSidebar = useSelector(
-        (state) => state.homeReducer.activeSidebar,
-    );
+    const currentSidebar = useSelector((state) => state.home.activeSidebar);
 
     const renderSidebarButton = (sidebar) => {
         return (
@@ -58,8 +57,7 @@ const AboutMe = () => {
     const [isContentHovered, setIsContentHovered] = useState(false);
     const [width, setWidth] = useState(0);
     const [modal, setModal] = useState(false);
-    const { activeSidebar: currentSidebar, activePage: currentPage } =
-        useSelector((state) => state.homeReducer);
+    const { activeSidebar: currentSidebar, activePage: currentPage } = useSelector((state) => state.home);
     const dispatch = useDispatch();
 
     const currentSidebarContent = aboutMeData[currentSidebar][currentPage];
@@ -79,7 +77,7 @@ const AboutMe = () => {
                             className={style.abDots}
                             onClick={() => {
                                 if (currentPage == i) return;
-                                dispatch({ type: 'CONTENT_PAGE', payload: i });
+                                dispatch(contentPage(i));
                             }}
                         />
                     ))}
