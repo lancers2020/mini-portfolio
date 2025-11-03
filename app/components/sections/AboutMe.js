@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import HeroProfile from '../cards/HeroProfile';
 import style from './style.module.css';
 import BasicButton from '../buttons/basicButton';
-import aboutMeData from '@/public/data/aboutMe.json';
+import aboutMeData from '@/public/data/aboutMe2.json';
 import { useDispatch, useSelector } from 'react-redux';
 import { homeSidebar, contentPage } from '@/store/actions/homeActions';
 import Pagination from '../buttons/paginationButton';

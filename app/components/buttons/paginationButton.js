@@ -15,17 +15,17 @@ const Pagination = ({ currentPage, pageCount, type, style }) => {
         alignItems: style?.alignItems ?? "center",
     };
 
-    useEffect(()=>{
-        const buttons = document.querySelectorAll('.paginationBtn');
-        buttons.forEach(button=>{
-            button.addEventListener('click', ()=>{
-                button.classList.add(stylesButtons.wobble);
-                button.addEventListener('animationend', () => {
-                    button.classList.remove(stylesButtons.wobble);
-                }, { once: true });
-            });
-        })
-    },[]);
+    // useEffect(()=>{
+    //     const buttons = document.querySelectorAll('.paginationBtn');
+    //     buttons.forEach(button=>{
+    //         button.addEventListener('click', ()=>{
+    //             button.classList.add(stylesButtons.wobble);
+    //             button.addEventListener('animationend', () => {
+    //                 button.classList.remove(stylesButtons.wobble);
+    //             }, { once: true });
+    //         });
+    //     })
+    // },[]);
 
     return (
         <section style={styles}>
@@ -36,7 +36,7 @@ const Pagination = ({ currentPage, pageCount, type, style }) => {
                         ? dispatch(contentPage(currentPage - 1))
                         : dispatch({ type, payload: currentPage - 1 })
                 }
-                className="paginationBtn"
+                className={`${currentPage > 0 ? stylesButtons.paginationBtn : stylesButtons.paginationBtnInactive}`}
                 style={{ opacity: currentPage <= 0 ? 0.5 : 1 }}
             >
                 <Image
@@ -53,8 +53,10 @@ const Pagination = ({ currentPage, pageCount, type, style }) => {
                         ? dispatch(contentPage(currentPage + 1))
                         : dispatch({ type, payload: currentPage + 1 })
                 }
-                className="paginationBtn"
-                style={{ opacity: pageCount == currentPage + 1 ? 0.5 : 1 }}
+                className={`${pageCount != currentPage + 1 ? stylesButtons.paginationBtn : stylesButtons.paginationBtnInactive}`}
+                style={{ 
+                    opacity: pageCount == currentPage + 1 ? 0.5 : 1,
+                }}
             >
                 <Image src={Next} height={35} width={35} alt={"Next button"} />
             </button>

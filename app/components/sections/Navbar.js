@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import style from './style.module.css';
 import BasicButton from '../buttons/basicButton';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { navbarButtonActive } from '@/store/actions/navbarActions';
 import SideBarDocker from '../cards/SideBarDocker';
 import Bar from '@/public/icons/bar.png';
 import Image from 'next/image';
 
-const NavBarButtons = ({ text, isHovered, currentNavbarButton }) => {
+const NavBarButtons = ({ text, isHovered, currentNavbarButton, onClick }) => {
     const isCurrentText =
         currentNavbarButton.toLowerCase() == text.toLowerCase();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const sectionId = text.toLowerCase();
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        onClick();
+    };
 
     return (
         <div>
@@ -17,9 +28,11 @@ const NavBarButtons = ({ text, isHovered, currentNavbarButton }) => {
                 margin={'5px 0'}
                 borderRadius={12}
                 className={`${style.navbarButtons} ${
-                    !isHovered && isCurrentText && style.activeNavbarButton
+                    !isHovered && isCurrentText ? style.activeNavbarButton : ''
                 }`}
                 textColor="white"
+                onClick={handleClick}
+                highlighted={isCurrentText}
             />
         </div>
     );
@@ -30,6 +43,7 @@ function Navbar() {
     const [width, setWidth] = useState(0);
     const [isClicked, setIsClicked] = useState(false);
 
+    const dispatch = useDispatch();
     const { activeNavbarButton: currentNavbarButton } = useSelector(
         (state) => state.navbar,
     );
@@ -51,7 +65,7 @@ function Navbar() {
         'Projects',
         'Certificates',
         'Contact',
-        'Login',
+        'Resume',
     ];
 
     return (
@@ -67,6 +81,7 @@ function Navbar() {
                                 currentNavbarButton={currentNavbarButton}
                                 isHovered={isHovered}
                                 text={'AboutMe'}
+                                onClick={() => dispatch(navbarButtonActive('AboutMe'))}
                             />
                         </li>
                         <li>
@@ -74,6 +89,7 @@ function Navbar() {
                                 currentNavbarButton={currentNavbarButton}
                                 isHovered={isHovered}
                                 text={'Projects'}
+                                onClick={() => dispatch(navbarButtonActive('Projects'))}
                             />
                         </li>
                         <li>
@@ -81,6 +97,7 @@ function Navbar() {
                                 currentNavbarButton={currentNavbarButton}
                                 isHovered={isHovered}
                                 text={'Certificates'}
+                                onClick={() => dispatch(navbarButtonActive('Certificates'))}
                             />
                         </li>
                         <li>
@@ -88,13 +105,15 @@ function Navbar() {
                                 currentNavbarButton={currentNavbarButton}
                                 isHovered={isHovered}
                                 text={'Contact'}
+                                onClick={() => dispatch(navbarButtonActive('Contact'))}
                             />
                         </li>
                         <li>
                             <NavBarButtons
                                 currentNavbarButton={currentNavbarButton}
                                 isHovered={isHovered}
-                                text={'Login'}
+                                text={'Resume'}
+                                onClick={() => dispatch(navbarButtonActive('Resume'))}
                             />
                         </li>
                     </ul>
@@ -107,6 +126,10 @@ function Navbar() {
                         list={navbarList}
                         isClicked={isClicked}
                         screenSize={width}
+                        onSelect={(v) => {
+                            dispatch(navbarButtonActive(v));
+                            setIsClicked(false);
+                        }}
                     />
                     <div
                         onClick={() => setIsClicked(true)}
