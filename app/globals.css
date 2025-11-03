@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .overlay {
     position: fixed;
     top: 0;

@@ -5,6 +5,7 @@ const SideBarDocker = ({
     isClicked,
     currentNavbarButton,
     screenSize,
+    onSelect,
 }) => {
     return (
         <section
@@ -17,11 +18,18 @@ const SideBarDocker = ({
                     {list.map((v, i) => (
                         <li
                             key={i}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => onSelect && onSelect(v)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') onSelect && onSelect(v);
+                            }}
                             style={{
                                 background:
                                     currentNavbarButton.toLowerCase() ==
                                         v.toLowerCase() &&
                                     'linear-gradient(to right, black, rgb(16, 18, 29))',
+                                cursor: 'pointer',
                             }}
                         >
                             {v}
