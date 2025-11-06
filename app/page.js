@@ -8,15 +8,17 @@ import PaginationDots from "./components/buttons/PaginationDots";
 import { useSelector } from 'react-redux';
 import Projects from "./components/sections/Projects";
 import Certificates from "./components/sections/Certificates";
-import Contact from "./components/sections/Contact";
+import Skills from "./components/sections/Skills";
 import Resume from "./components/sections/Resume";
 import { Provider } from "react-redux";
 import store from "@/store/store";
+import MobileFallback from "./MobileFallback";
 
 const Home = () => {
     return (
         <Provider store={store}>
             <div className={style.mainContainer}>
+                <MobileFallback />
                 <Navbar />
                 <PaginationDots />
                 <main className={style.contentContainer}>
@@ -29,8 +31,8 @@ const Home = () => {
                     <section id="certificates" className={style.section}>
                         <Certificates />
                     </section>
-                    <section id="contact" className={style.section}>
-                        <Contact />
+                    <section id="skills" className={style.section}>
+                        <Skills />
                     </section>
                     <section id="resume" className={style.section}>
                         <Resume />

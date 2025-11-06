@@ -10,6 +10,7 @@ import { homeSidebar, contentPage } from '@/store/actions/homeActions';
 import Pagination from '../buttons/paginationButton';
 import ScrollIndicator from '../objects/ScrollIndicator';
 import ArrowDown from '../objects/ArrowDown';
+import SectionIndicator from '../objects/SectionIndicator';
 
 const Navbar = ({ setModal, width }) => {
     const dispatch = useDispatch();
@@ -142,44 +143,44 @@ const AboutMe = () => {
     }, []);
 
     // ✨ Smooth delayed scroll effect
-    useEffect(() => {
-        let targetScrollY = window.scrollY;
-        let currentScrollY = window.scrollY;
-        let ticking = false;
+    // useEffect(() => {
+    //     let targetScrollY = window.scrollY;
+    //     let currentScrollY = window.scrollY;
+    //     let ticking = false;
 
-        const lerp = (start, end, factor) => start + (end - start) * factor;
+    //     const lerp = (start, end, factor) => start + (end - start) * factor;
 
-        const updateScroll = () => {
-            currentScrollY = lerp(currentScrollY, targetScrollY, 0.08); // adjust smoothness
-            window.scrollTo(0, currentScrollY);
+    //     const updateScroll = () => {
+    //         currentScrollY = lerp(currentScrollY, targetScrollY, 0.08); // adjust smoothness
+    //         window.scrollTo(0, currentScrollY);
 
-            if (Math.abs(targetScrollY - currentScrollY) > 0.5) {
-                requestAnimationFrame(updateScroll);
-            } else {
-                ticking = false;
-            }
-        };
+    //         if (Math.abs(targetScrollY - currentScrollY) > 0.5) {
+    //             requestAnimationFrame(updateScroll);
+    //         } else {
+    //             ticking = false;
+    //         }
+    //     };
 
-        const handleWheel = (e) => {
-            e.preventDefault();
-            targetScrollY += e.deltaY;
-            targetScrollY = Math.max(
-                0,
-                Math.min(
-                    targetScrollY,
-                    document.body.scrollHeight - window.innerHeight
-                )
-            );
+    //     const handleWheel = (e) => {
+    //         e.preventDefault();
+    //         targetScrollY += e.deltaY;
+    //         targetScrollY = Math.max(
+    //             0,
+    //             Math.min(
+    //                 targetScrollY,
+    //                 document.body.scrollHeight - window.innerHeight
+    //             )
+    //         );
 
-            if (!ticking) {
-                ticking = true;
-                requestAnimationFrame(updateScroll);
-            }
-        };
+    //         if (!ticking) {
+    //             ticking = true;
+    //             requestAnimationFrame(updateScroll);
+    //         }
+    //     };
 
-        window.addEventListener('wheel', handleWheel, { passive: false });
-        return () => window.removeEventListener('wheel', handleWheel);
-    }, []);
+    //     window.addEventListener('wheel', handleWheel, { passive: false });
+    //     return () => window.removeEventListener('wheel', handleWheel);
+    // }, []);
 
     return (
         <section
@@ -233,6 +234,16 @@ const AboutMe = () => {
                         width: '50px', 
                         height: '50px',
                         transform: 'scale(2)'
+                    }} />
+                </div>
+                <div>
+                    <SectionIndicator src={'/sections/dave.png'} styles={{
+                        position: 'absolute', 
+                        top: '-25px', 
+                        left: '0', 
+                        width: '50px', 
+                        height: '50px',
+                        scale: '5'
                     }} />
                 </div>
             </div>
