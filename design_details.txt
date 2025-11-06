@@ -1,7 +1,7 @@
 main body background: #255075
 main box-shadow: #113555
 main dark color: #051725
-navbars: About Me, Projects, Certificates, Contact, Login
+navbars: About Me, Projects, Certificates, Skills, Resume
 components: components always wraps their content with element "section" so as not to have css conflicts
 
 pagination: when user clicks one of the navbar buttons, the herobanner will shrink into a mobile view (sort of) and then moved to the left side of the screen

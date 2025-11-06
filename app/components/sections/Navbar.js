@@ -64,7 +64,7 @@ function Navbar() {
         'AboutMe',
         'Projects',
         'Certificates',
-        'Contact',
+        'Skills',
         'Resume',
     ];
 
@@ -104,8 +104,8 @@ function Navbar() {
                             <NavBarButtons
                                 currentNavbarButton={currentNavbarButton}
                                 isHovered={isHovered}
-                                text={'Contact'}
-                                onClick={() => dispatch(navbarButtonActive('Contact'))}
+                                text={'Skills'}
+                                onClick={() => dispatch(navbarButtonActive('Skills'))}
                             />
                         </li>
                         <li>

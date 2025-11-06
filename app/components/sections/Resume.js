@@ -3,6 +3,7 @@
 import React from 'react';
 import style from './style.module.css';
 import BasicButton from '../buttons/basicButton';
+import SectionIndicator from '../objects/SectionIndicator';
 
 const Resume = () => {
     const handleDownload = () => {
@@ -20,6 +21,7 @@ const Resume = () => {
 
     return (
         <div className={style.resumeContainer}>
+            <img src='/sections/motto.png' alt='motto' />
             <h1 className={style.resumeTitle}>My Resume</h1>
             <p className={style.resumeDescription}>
                 Feel free to download my resume to learn more about my professional experience and skills.
@@ -30,6 +32,17 @@ const Resume = () => {
                 className={style.downloadButton}
                 textColor="white"
             />
+            <div>
+                <SectionIndicator src={'/sections/resume.png'} styles={{
+                    position: 'absolute', 
+                    top: '-25px', 
+                    left: '0', 
+                    width: '50px', 
+                    height: '50px',
+                    scale: '4.5',
+                    zIndex: 1000
+                }} />
+            </div>
         </div>
     );
 };

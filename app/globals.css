@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Delius&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +10,7 @@ html {
 body {
     overflow-y: auto;
     overflow-x: hidden;
+    font-family: "Delius" !important;
 }
 
 .overlay {
@@ -19,5 +21,20 @@ body {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
-    z-index: 2000;
+    z-index: 9999;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes glow {
+  0% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0.8; transform: translateX(-50%) scale(1.2); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }

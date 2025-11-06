@@ -7,7 +7,7 @@ import { navbarButtonActive } from '@/store/actions/navbarActions';
 
 const PaginationDots = () => {
     // The order of these sections is crucial for the scroll logic
-    const sections = ['aboutme', 'projects', 'certificates', 'contact', 'resume'];
+    const sections = ['aboutme', 'projects', 'certificates', 'skills', 'resume'];
     const [activeSection, setActiveSection] = useState('aboutme');
     // Note: The activeNavbarButton from Redux is currently unused in the PaginationDots logic,
     // but I left the line here since it was in your original code.
