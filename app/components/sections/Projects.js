@@ -130,7 +130,7 @@ const ProjectCard = ({ project, onDetailsClick }) => {
         color: '#fff',
         cursor: 'pointer',
         transformOrigin: '50% 0%',
-        zIndex: 2000
+        // zIndex: 2000
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
